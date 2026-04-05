@@ -80,21 +80,24 @@ strong {
 }
 
 /* Upload box */
+[data-testid="stFileUploader"] > label {
+    color: white !important;
+    font-weight: bold !important;
+}
+
 [data-testid="stFileUploader"] section {
     background-color: #f5f6fa !important;
     border-radius: 12px !important;
     padding: 20px !important;
-}
-
-/* Drag text (SAFE TARGETING) */
-[data-testid="stFileUploader"] section span {
     color: black !important;
     font-weight: 600 !important;
 }
 
-/* Small text */
-[data-testid="stFileUploader"] small {
+[data-testid="stFileUploader"] button {
+    background-color: #ffffff !important;
     color: black !important;
+    border-radius: 8px !important;
+    border: 1px solid #ccc !important;
 }
 
 /* Button */
