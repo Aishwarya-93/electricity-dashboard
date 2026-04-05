@@ -15,7 +15,7 @@ st.markdown("""
 
 /* --- BACKGROUND --- */
 .stApp {
-    background: linear-gradient(90deg,rgba(232, 84, 84, 1) 0%, rgba(252, 104, 104, 1) 42%, rgba(194, 109, 237, 1) 100%);
+    background: linear-gradient(90deg, rgba(232,84,84,1) 0%, rgba(252,104,104,1) 42%, rgba(194,109,237,1) 100%);
 }
 
 /* --- TEXT --- */
@@ -48,27 +48,62 @@ button[role="tab"] {
     font-weight: bold;
 }
 
+/* --- SIDEBAR --- */
+section[data-testid="stSidebar"] {
+    background-color: rgba(0,0,0,0.2);
+}
+
+section[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+section[data-testid="stSidebar"] input {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+/* --- TEXT FIX --- */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stText"],
+strong {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* ========================= */
+/* 🔥 FINAL FILE UPLOADER FIX */
+/* ========================= */
 
 [data-testid="stFileUploader"] > label {
     color: white !important;
     font-weight: bold !important;
 }
 
-/* Box text */
+/* Upload box */
 [data-testid="stFileUploader"] section {
-    opacity: 1 !important;
+    background-color: #f5f6fa !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
 }
 
 /* Drag text */
 [data-testid="stFileUploader"] section div {
     color: black !important;
-    font-weight: bold !important;
+    font-weight: 600 !important;
 }
 
 /* Small text */
 [data-testid="stFileUploader"] small {
     color: black !important;
-    font-weight: bold !important;
+}
+
+/* Button */
+[data-testid="stFileUploader"] button {
+    background-color: #ffffff !important;
+    color: black !important;
+    border-radius: 8px !important;
+    border: 1px solid #ccc !important;
+    font-weight: 500 !important;
 }
 
 /* Uploaded filename */
@@ -77,81 +112,15 @@ button[role="tab"] {
     font-weight: bold !important;
 }
 
-
-
-section[data-testid="stSidebar"] {
-    background-color: rgba(0,0,0,0.2);
-}
-
-/* Sidebar text */
-section[data-testid="stSidebar"] * {
-    color: white !important;
-}
-
-/* Labels */
-section[data-testid="stSidebar"] label {
-    font-weight: bold !important;
-}
-
-/* Input boxes */
-section[data-testid="stSidebar"] input {
-    color: black !important;
-    font-weight: bold !important;
-}
-
-
-[data-testid="stMarkdownContainer"] p {
-    color: white !important;
-    opacity: 1 !important;
-    font-weight: 500;
-}
-
-/* General text blocks */
-[data-testid="stText"] {
-    color: white !important;
-    opacity: 1 !important;
-}
-
-/* Stronger visibility */
-strong {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
-st.markdown("""
-<style>
-
-/* 🔥 FIX UPLOADER BOX (THIS IS THE MISSING PART) */
-[data-testid="stFileUploader"] section {
-    background-color: #f1f3f6 !important;   /* light box */
-    border-radius: 12px !important;
-    padding: 20px !important;
-    border: none !important;
-}
-
-/* Make icon + text aligned nicely */
-[data-testid="stFileUploader"] section div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Fix button */
-[data-testid="stFileUploader"] button {
-    background-color: #e6e6e6 !important;
-    color: black !important;
-    border-radius: 8px !important;
-    font-weight: 500 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 st.markdown("<h1 style='text-align: center;'>⚡ Electricity Consumption Dashboard</h1>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("Upload your electricity dataset (CSV)", type=["csv"])
+uploaded_file = st.file_uploader(
+    "Upload your electricity dataset (CSV)",
+    type=["csv"],
+    label_visibility="visible"
+)
 
 if uploaded_file is not None:
     with st.spinner("Processing data..."):
