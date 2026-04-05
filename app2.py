@@ -1,3 +1,12 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+st.set_page_config(
+    page_title="Electricity Dashboard",
+    page_icon="⚡",
+    layout="wide"
+)
 # --- STYLES ---
 st.markdown("""
 <style>
