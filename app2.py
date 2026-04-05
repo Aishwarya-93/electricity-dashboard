@@ -118,7 +118,20 @@ strong {
 </style>
 """, unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>⚡ Electricity Consumption Dashboard</h1>", unsafe_allow_html=True)
-
+st.markdown("""
+<div style="
+    background-color:#f5f6fa;
+    padding:15px;
+    border-radius:12px;
+    color:black;
+    font-weight:600;
+    margin-bottom:10px;
+">
+📂 Drag and drop file here or click <b>Browse files</b>
+<br>
+<span style="font-size:13px;">Limit 200MB per file • CSV</span>
+</div>
+""", unsafe_allow_html=True)
 uploaded_file = st.file_uploader(
     "Upload your electricity dataset (CSV)",
     type=["csv"],
