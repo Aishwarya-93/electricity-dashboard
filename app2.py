@@ -69,19 +69,20 @@ strong {
 
 /* --- FIX FILE UPLOADER --- */
 
-/* Hide default text */
-[data-testid="stFileUploader"] section span {
+
+/* Hide ONLY drag text, not everything */
+[data-testid="stFileUploader"] section small {
     display: none !important;
 }
 
-/* Box */
+/* Keep box clean */
 [data-testid="stFileUploader"] section {
     background-color: #f5f6fa !important;
     border-radius: 12px !important;
     padding: 20px !important;
 }
 
-/* Button */
+/* Button styling */
 [data-testid="stFileUploader"] button {
     background-color: #ffffff !important;
     color: black !important;
