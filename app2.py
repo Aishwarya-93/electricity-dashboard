@@ -86,8 +86,8 @@ strong {
     padding: 20px !important;
 }
 
-/* Drag text */
-[data-testid="stFileUploader"] section div {
+/* Drag text (SAFE TARGETING) */
+[data-testid="stFileUploader"] section span {
     color: black !important;
     font-weight: 600 !important;
 }
