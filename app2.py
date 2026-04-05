@@ -1,15 +1,4 @@
-import streamlit as st
-import pandas as pd
-import plotly.express as px
-import sys
-
-st.set_page_config(
-    page_title="Electricity Dashboard",
-    page_icon="⚡",
-    layout="wide"
-)
-
-# --- BACKGROUND + TEXT ---
+# --- STYLES ---
 st.markdown("""
 <style>
 
@@ -67,37 +56,20 @@ section[data-testid="stSidebar"] input {
 [data-testid="stText"],
 strong {
     color: white !important;
-    opacity: 1 !important;
 }
 
-/* ========================= */
-/* 🔥 FINAL FILE UPLOADER FIX */
-/* ========================= */
+/* --- FIX FILE UPLOADER --- */
 
-[data-testid="stFileUploader"] > label {
-    color: white !important;
-    font-weight: bold !important;
+/* Hide default text */
+[data-testid="stFileUploader"] section span {
+    display: none !important;
 }
 
-/* Upload box */
-[data-testid="stFileUploader"] > label {
-    color: white !important;
-    font-weight: bold !important;
-}
-
+/* Box */
 [data-testid="stFileUploader"] section {
     background-color: #f5f6fa !important;
     border-radius: 12px !important;
     padding: 20px !important;
-    color: black !important;
-    font-weight: 600 !important;
-}
-
-[data-testid="stFileUploader"] button {
-    background-color: #ffffff !important;
-    color: black !important;
-    border-radius: 8px !important;
-    border: 1px solid #ccc !important;
 }
 
 /* Button */
@@ -106,18 +78,15 @@ strong {
     color: black !important;
     border-radius: 8px !important;
     border: 1px solid #ccc !important;
-    font-weight: 500 !important;
-}
-
-/* Uploaded filename */
-[data-testid="stFileUploaderFileName"] {
-    color: white !important;
-    font-weight: bold !important;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
+# --- TITLE ---
 st.markdown("<h1 style='text-align: center;'>⚡ Electricity Consumption Dashboard</h1>", unsafe_allow_html=True)
+
+# --- CUSTOM UPLOAD CARD ---
 st.markdown("""
 <div style="
     background-color:#f5f6fa;
@@ -127,16 +96,18 @@ st.markdown("""
     font-weight:600;
     margin-bottom:10px;
 ">
-📂 Drag and drop file here or click <b>Browse files</b>
-<br>
+📂 Drag and drop file here or click <b>Browse files</b><br>
 <span style="font-size:13px;">Limit 200MB per file • CSV</span>
 </div>
 """, unsafe_allow_html=True)
+
+# --- FILE UPLOADER ---
 uploaded_file = st.file_uploader(
-    "Upload your electricity dataset (CSV)",
+    "",
     type=["csv"],
-    label_visibility="visible"
+    label_visibility="collapsed"
 )
+
 
 if uploaded_file is not None:
     with st.spinner("Processing data..."):
