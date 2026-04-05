@@ -120,6 +120,34 @@ strong {
 
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* 🔥 FIX UPLOADER BOX (THIS IS THE MISSING PART) */
+[data-testid="stFileUploader"] section {
+    background-color: #f1f3f6 !important;   /* light box */
+    border-radius: 12px !important;
+    padding: 20px !important;
+    border: none !important;
+}
+
+/* Make icon + text aligned nicely */
+[data-testid="stFileUploader"] section div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Fix button */
+[data-testid="stFileUploader"] button {
+    background-color: #e6e6e6 !important;
+    color: black !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>⚡ Electricity Consumption Dashboard</h1>", unsafe_allow_html=True)
 
